@@ -10,7 +10,7 @@ const Navbar = () => {
       </Link>
 
       <nav>
-        <ul className="flex gap-10 items-center">
+        <ul className="flex gap-8 items-center text-xl font-medium">
           <li>Search</li>
           <li>Agents</li>
           <li>Buy</li>
@@ -20,7 +20,9 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      <Button size="lg">Sign In</Button>
+      <Button size="lg" className="rounded-4xl">
+        Sign In
+      </Button>
     </header>
   );
 };

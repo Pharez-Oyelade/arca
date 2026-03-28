@@ -52,7 +52,7 @@ const Hero = () => {
       </motion.div> */}
       <motion.div
         style={{ scale: imageScale }}
-        className="absolute bottom-0 right-1/2 translate-x-1/2 h-[60%] overflow-hidden z-0"
+        className="absolute bottom-0 right-1/2 translate-x-1/2 h-[60%] overflow-hidden z-0 pointer-events-none"
       >
         <Image
           src="/building.png"
