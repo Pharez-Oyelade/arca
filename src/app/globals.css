@@ -13,7 +13,16 @@
 } */
 
 .hero-wrapper {
-  background: url("./bg_sky.png");
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('/bg_sky.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.divider {
+  transform: rotate(180deg);
 }
 
 @theme inline {

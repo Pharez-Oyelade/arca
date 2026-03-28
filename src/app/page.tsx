@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import React from "react";
 import Hero from "./components/Hero";
+import WhyArca from "./components/WhyArca";
 
 const page = () => {
   return (
@@ -9,6 +10,8 @@ const page = () => {
         <Navbar />
         <Hero />
       </div>
+
+      <WhyArca />
     </>
   );
 };
