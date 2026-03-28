@@ -12,6 +12,10 @@
   font-display: swap;
 } */
 
+.hero-wrapper {
+  background: url("./bg_sky.png");
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
