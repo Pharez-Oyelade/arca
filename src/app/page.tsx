@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import React from "react";
 import Hero from "./components/Hero";
 import WhyArca from "./components/WhyArca";
+import Image from "next/image";
 
 const page = () => {
   return (
