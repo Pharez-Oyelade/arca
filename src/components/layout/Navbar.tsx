@@ -7,6 +7,7 @@ import { X, Equal } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // disable scrolling when mobile menu is open
   useEffect(() => {
@@ -31,9 +32,30 @@ const Navbar = () => {
     };
   }, []);
 
+  // sticky nav on sctroll with background change after scrolling 200px and only when scrollwd down
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 200 && currentScrollY < lastScrollY) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header
-      className={`px-4 md:px-8 lg:px-20 py-3 flex justify-between items-center relative ${isOpen ? "bg-white md:bg-transparent" : "bg-transparent"} transition-colors duration-500 ease-in-out`}
+      id="navbar"
+      className={`px-4 md:px-8 lg:px-20 py-3 flex justify-between items-center ${isOpen ? "bg-white md:bg-transparent" : "bg-transparent"} transition-colors duration-500 ease-in-out ${isScrolled ? "bg-white shadow-md fixed top-0 right-0 w-full z-999" : "relative"}`}
     >
       <Link href="/" className="">
         <h1 className="font-logo font-bold text-2xl md:text-3xl lg:text-4xl">
