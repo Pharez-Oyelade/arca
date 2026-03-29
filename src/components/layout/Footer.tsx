@@ -55,7 +55,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="mt-8 md:mt-10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-        <div className="text-gray-500 flex flex-col md:flex-row gap-2 md:gap-5 items-center text-center md:text-left">
+        <div className="text-gray-500 flex flex-wrap gap-3 md:gap-5 items-center text-center md:text-left">
           <p>Terms</p>
           <p>Privacy Policy</p>
           <p>Help Center</p>
