@@ -2,6 +2,7 @@ export const properties = [
   {
     id: 1,
     name: "Solaris Tower No. 41",
+    image: "/images/penthouse.jpg",
     featured: true,
     type: "penthouse",
     saleType: "for sale",
@@ -14,6 +15,7 @@ export const properties = [
   {
     id: 2,
     name: "The Verdant Suite",
+    image: "/images/apartment1.jpg",
     featured: true,
     type: "apartment",
     saleType: "for rent",
@@ -26,6 +28,7 @@ export const properties = [
   {
     id: 3,
     name: "Amber Ridge Estate",
+    image: "/images/villa.jpg",
     featured: true,
     type: "villa",
     saleType: "for sale",
@@ -38,6 +41,7 @@ export const properties = [
   {
     id: 4,
     name: "Onyx Residences",
+    image: "/images/apartment2.jpg",
     featured: true,
     type: "apartment",
     saleType: "new dev",
@@ -50,6 +54,7 @@ export const properties = [
   {
     id: 5,
     name: "Garden Mews Studio",
+    image: "/images/studio.jpg",
     featured: true,
     type: "studio",
     saleType: "for rent",
@@ -62,6 +67,7 @@ export const properties = [
   {
     id: 6,
     name: "Cedar Lane Townhouse",
+    image: "/images/house.jpg",
     featured: true,
     type: "house",
     saleType: "for sale",

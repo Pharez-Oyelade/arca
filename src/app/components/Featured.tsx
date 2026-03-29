@@ -2,10 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { properties } from "../assets/properties";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { Map } from "lucide-react";
 
 interface Property {
   id: number;
   name: string;
+  image: string;
   featured: boolean;
   type: string;
   saleType: string;
@@ -58,11 +61,11 @@ const Featured = () => {
         <div>View all listings </div>
       </div>
 
-      <article id="featured" className="flex gap-5 mt-10">
-        <aside className="sticky top-0 h-auto w-1/3 bg-gray-100 rounded-2xl p-5 space-y-5">
+      <article id="featured" className="flex gap-10 mt-10">
+        <aside className="sticky top-10 h-fit w-[25%] bg-gray-100 rounded-2xl p-5 space-y-5">
           <h3 className="font-bold text-md text-gray-600">REFINE SEARCH</h3>
 
-          <div>
+          <div className="flex flex-col justify-between">
             <h4 className="pl-2 pb-2">For</h4>
             <div className="flex gap-2 items-center">
               {SALE_TYPES.map((sale) => (
@@ -95,9 +98,53 @@ const Featured = () => {
           <Button>Apply Filters</Button>
         </aside>
 
-        <main className="w-2/3 grid grid-cols-3 gap-3">
+        {/* ............. FEATURED GRID ................... */}
+        <main className="w-[75%] grid grid-cols-3 gap-10">
           {featuredProperty.map((property) => (
-            <div key={property.id}></div>
+            <div
+              key={property.id}
+              className="w-full overflow-hidden rounded-lg shadow-lg relative group"
+            >
+              <div className="w-full h-[60%] overflow-hidden">
+                <Image
+                  src={property.image}
+                  alt="property image"
+                  width={400}
+                  height={400}
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                />
+              </div>
+              <div className="p-3 bg-white h-[40%]">
+                <span className="uppercase text-sm text-gray-500">
+                  {property.type}
+                </span>
+                <h3 className="text-2xl">{property.name}</h3>
+                <div className="text-sm text-gray-600">
+                  <Map
+                    className="inline mr-1"
+                    size={16}
+                    aria-label="location"
+                  />
+                  <span>{property.location}</span>
+                </div>
+
+                <div className="pt-5 font-bold text-sm text-gray-700">
+                  {property.bedrooms} beds | {property.bathrooms} baths |{" "}
+                  {property.area} sqft
+                </div>
+
+                <div className="pt-2 font-bold text-lg">
+                  ${property.price.toLocaleString()}
+                  <sup className="text-gray-500">
+                    {property.saleType === "for sale" ? "USD" : "/mo"}
+                  </sup>
+                </div>
+
+                <div className="absolute top-2 left-2 bg-black text-white py-1 px-5 rounded-2xl">
+                  {property.saleType}
+                </div>
+              </div>
+            </div>
           ))}
         </main>
       </article>
