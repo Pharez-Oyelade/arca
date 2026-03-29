@@ -2,15 +2,38 @@
 
 import Link from "next/link";
 import { Button } from "../ui/button";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { X, Equal } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // disable scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
+
+  // close mobile menu on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <header
-      className={`px-4 md:px-8 lg:px-20 py-3 flex justify-between items-center relative ${isOpen ? "bg-white md:bg-transparent" : "bg-transparent"} transition-colors duration-300 ease-in-out`}
+      className={`px-4 md:px-8 lg:px-20 py-3 flex justify-between items-center relative ${isOpen ? "bg-white md:bg-transparent" : "bg-transparent"} transition-colors duration-500 ease-in-out`}
     >
       <Link href="/" className="">
         <h1 className="font-logo font-bold text-2xl md:text-3xl lg:text-4xl">
@@ -125,23 +148,28 @@ const Navbar = () => {
       {/* Mobile Navigation */}
 
       <div
-        className={`absolute top-full left-0 right-0 bg-white shadow-lg md:hidden z-50 transition-transform duration-300 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-[200%]"}`}
+        onClick={() => setIsOpen(false)}
+        className={`absolute top-full left-0 right-0 bg-black/50 backdrop-blur-2xl h-screen w-full z-[999] ${isOpen ? "translate-y-0" : "-translate-y-[200%]"} transition-transform duration-500 ease-in-out`}
       >
-        <nav className="px-4 py-4">
-          <ul className="flex flex-col gap-4 text-lg font-medium">
-            <li>Search</li>
-            <li>Agents</li>
-            <li>Buy</li>
-            <li>Rent</li>
-            <li>Resources</li>
-            <li>About</li>
-          </ul>
-          <div className="mt-4">
-            <Button size="lg" className="w-full rounded-4xl">
-              Sign In
-            </Button>
-          </div>
-        </nav>
+        <div
+          className={`bg-white transition-transform duration-500 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-[200%]"}`}
+        >
+          <nav className="px-4 py-4">
+            <ul className="flex flex-col gap-4 text-lg font-medium">
+              <li>Search</li>
+              <li>Agents</li>
+              <li>Buy</li>
+              <li>Rent</li>
+              <li>Resources</li>
+              <li>About</li>
+            </ul>
+            <div className="mt-4">
+              <Button size="lg" className="w-full rounded-4xl">
+                Sign In
+              </Button>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );
