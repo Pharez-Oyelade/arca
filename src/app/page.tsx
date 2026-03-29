@@ -5,6 +5,7 @@ import WhyArca from "./components/WhyArca";
 import { Button } from "@/components/ui/button";
 import Featured from "./components/Featured";
 import Services from "./components/Services";
+import ContactCard from "./components/ContactCard";
 
 const page = () => {
   return (
@@ -100,6 +101,7 @@ const page = () => {
       <WhyArca />
       <Featured />
       <Services />
+      <ContactCard />
     </div>
   );
 };
