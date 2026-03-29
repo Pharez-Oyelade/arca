@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import type { Metadata } from "next";
+import { ProductProvider } from "../context/ProductContext";
 
 export const metadata: Metadata = {
   title: "Arca - Search for your next home",
@@ -14,7 +15,9 @@ export default function ProductsLayout({
   return (
     <div className="">
       <Navbar />
-      <div className="py-5 md:py-10 px-5 md:px-20">{children}</div>
+      <div className="py-5 md:py-10 px-5 md:px-20">
+        <ProductProvider>{children}</ProductProvider>
+      </div>
     </div>
   );
 }
