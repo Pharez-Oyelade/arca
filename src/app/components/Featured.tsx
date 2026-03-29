@@ -165,60 +165,67 @@ const Featured = () => {
           </span>
           {featuredProperty.length === 0 ? (
             <div className="text-center py-20">
-              <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-4">No properties found</h3>
-              <p className="text-gray-500">Try adjusting your filters to see more results.</p>
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-4">
+                No properties found
+              </h3>
+              <p className="text-gray-500">
+                Try adjusting your filters to see more results.
+              </p>
             </div>
           ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-            {featuredProperty.map((property) => (
-              <div
-                key={property.id}
-                className="w-full h-full overflow-hidden rounded-lg shadow-lg relative group"
-              >
-                <div className="w-full h-[55%] overflow-hidden">
-                  <Image
-                    src={property.image}
-                    alt="property image"
-                    width={400}
-                    height={400}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                  />
-                </div>
-                <div className="p-3 bg-white h-[40%]">
-                  <span className="uppercase text-xs md:text-sm text-gray-500">
-                    {property.type}
-                  </span>
-                  <h3 className="text-lg md:text-xl lg:text-2xl">
-                    {property.name}
-                  </h3>
-                  <div className="text-xs md:text-sm text-gray-600">
-                    <Map
-                      className="inline mr-1"
-                      size={14}
-                      aria-label="location"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+              {featuredProperty.map((property) => (
+                <div
+                  key={property.id}
+                  className="w-full h-full overflow-hidden rounded-lg shadow-lg relative group"
+                >
+                  <div className="w-full h-[55%] overflow-hidden">
+                    <Image
+                      src={property.image}
+                      alt="property image"
+                      width={400}
+                      height={400}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
                     />
-                    <span>{property.location}</span>
                   </div>
+                  <div className="p-3 bg-white h-[40%]">
+                    <span className="uppercase text-xs md:text-sm text-gray-500">
+                      {property.type}
+                    </span>
+                    <h3 className="text-lg md:text-xl lg:text-2xl">
+                      {property.name}
+                    </h3>
+                    <div className="text-xs md:text-sm text-gray-600">
+                      <Map
+                        className="inline mr-1"
+                        size={14}
+                        aria-label="location"
+                      />
+                      <span>{property.location}</span>
+                    </div>
 
-                  <div className="pt-3 md:pt-5 font-bold text-xs md:text-sm text-gray-700">
-                    {property.bedrooms} beds | {property.bathrooms} baths |{" "}
-                    {property.area} sqft
-                  </div>
+                    <div className="pt-3 md:pt-5 font-bold text-xs md:text-sm text-gray-700">
+                      {property.bedrooms} beds | {property.bathrooms} baths |{" "}
+                      {property.area} sqft
+                    </div>
 
-                  <div className="pt-1 md:pt-2 font-bold text-base md:text-lg">
-                    ${property.price.toLocaleString()}
-                    <sup className="text-gray-500 text-sm">
-                      {property.saleType === "for sale" ? "USD" : "/mo"}
-                    </sup>
-                  </div>
+                    <div className="pt-1 md:pt-2 font-bold text-base md:text-lg">
+                      ${property.price.toLocaleString()}
+                      <sup className="text-gray-500 text-sm">
+                        {property.saleType === "for sale" ||
+                        property.saleType === "new dev"
+                          ? "USD"
+                          : "/mo"}
+                      </sup>
+                    </div>
 
-                  <div className="absolute top-2 left-2 bg-black text-white py-1 px-3 md:px-5 rounded-2xl text-xs md:text-sm">
-                    {property.saleType}
+                    <div className="absolute top-2 left-2 bg-black text-white py-1 px-3 md:px-5 rounded-2xl text-xs md:text-sm">
+                      {property.saleType}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
           )}
         </main>
       </article>
