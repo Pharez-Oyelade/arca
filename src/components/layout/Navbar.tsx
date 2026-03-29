@@ -69,13 +69,13 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Search
             </Link>
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Search
             </Link>
@@ -83,13 +83,13 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Agents
             </Link>
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Agents
             </Link>
@@ -97,13 +97,13 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Buy
             </Link>
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Buy
             </Link>
@@ -111,13 +111,13 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Rent
             </Link>
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Rent
             </Link>
@@ -125,13 +125,13 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Resources
             </Link>
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Resources
             </Link>
@@ -139,13 +139,13 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               About
             </Link>
             <Link
               href="#"
-              className="cursor-pointer group-hover:text-white transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               About
             </Link>
