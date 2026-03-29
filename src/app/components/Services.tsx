@@ -23,7 +23,7 @@ const Services = () => {
 
       <div className="px-4 md:px-8 lg:px-20 bg-[url('/images/apartment1.jpg')] bg-center bg-cover h-[200px] md:h-[280px] lg:h-[320px] rounded-lg relative overflow-hidden group">
         <Link href="/">
-          <div className="bg-black/90 absolute h-full w-full top-0 inset-0 z-0" />
+          <div className="bg-black/80 absolute h-full w-full top-0 inset-0 z-0" />
           <div className="hidden md:block bg-[#151717] absolute h-full w-full top-0 inset-0 z-10 translate-y-0 md:group-hover:-translate-y-full transition-all duration-500 md:duration-700 ease-in-out" />
           <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-8 lg:gap-40 items-center z-50 text-white relative h-full p-4 md:p-6">
             <div className="w-full md:w-[35%] text-sm md:text-base">
@@ -52,7 +52,7 @@ const Services = () => {
       {/* SELL */}
       <div className="px-4 md:px-8 lg:px-20 bg-[url('/images/villa.jpg')] bg-center bg-cover h-[200px] md:h-[280px] lg:h-[320px] rounded-lg relative overflow-hidden group">
         <Link href="/">
-          <div className="bg-black/90 absolute h-full w-full top-0 inset-0 z-0" />
+          <div className="bg-black/80 absolute h-full w-full top-0 inset-0 z-0" />
           <div className="hidden md:block bg-[#151717] absolute h-full w-full top-0 inset-0 z-10 translate-y-0 md:group-hover:-translate-y-full transition-all duration-500 md:duration-700 ease-in-out" />
           <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-8 lg:gap-40 items-center z-50 text-white relative h-full p-4 md:p-6">
             <div className="w-full md:w-[35%] text-sm md:text-base">
@@ -81,7 +81,7 @@ const Services = () => {
       {/* RENT */}
       <div className="px-4 md:px-8 lg:px-20 bg-[url('/images/studio.jpg')] bg-center bg-cover h-[200px] md:h-[280px] lg:h-[320px] rounded-lg relative overflow-hidden group">
         <Link href="/">
-          <div className="bg-black/90 absolute h-full w-full top-0 inset-0 z-0" />
+          <div className="bg-black/80 absolute h-full w-full top-0 inset-0 z-0" />
           <div className="hidden md:block bg-[#151717] absolute h-full w-full top-0 inset-0 z-10 translate-y-0 md:group-hover:-translate-y-full transition-all duration-500 md:duration-700 ease-in-out" />
           <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-8 lg:gap-40 items-center z-50 text-white relative h-full p-4 md:p-6">
             <div className="w-full md:w-[35%] text-sm md:text-base">
