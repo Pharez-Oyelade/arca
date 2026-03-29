@@ -3,11 +3,12 @@ import React from "react";
 import Hero from "./components/Hero";
 import WhyArca from "./components/WhyArca";
 import { Button } from "@/components/ui/button";
+import Featured from "./components/Featured";
 
 const page = () => {
   return (
-    <>
-      <div className="hero-wrapper h-screen relative">
+    <div>
+      <div className="hero-wrapper h-screen">
         <Navbar />
         <Hero />
       </div>
@@ -16,7 +17,7 @@ const page = () => {
         <div className="absolute -bottom-15 w-3/4 right-1/2 translate-x-1/2 bg-black/30 z-50 px-5 py-8 rounded-lg backdrop-blur-lg">
           <div className="flex items-center gap-5">
             <div className="w-1/5">
-              <h3>LOCATION</h3>
+              <h3 className="text-sm font-bold text-gray-700 pl-5">LOCATION</h3>
               <form>
                 <input
                   list="locations"
@@ -31,7 +32,7 @@ const page = () => {
               </form>
             </div>
             <div className="w-1/5">
-              <h3>TYPE</h3>
+              <h3 className="text-sm font-bold text-gray-700 pl-5">TYPE</h3>
               <form>
                 <input
                   list="types"
@@ -49,7 +50,9 @@ const page = () => {
               </form>
             </div>
             <div className="w-1/5">
-              <h3>PRICE RANGE</h3>
+              <h3 className="text-sm font-bold text-gray-700 pl-5">
+                PRICE RANGE
+              </h3>
               <form>
                 <input
                   list="prices"
@@ -66,7 +69,7 @@ const page = () => {
               </form>
             </div>
             <div className="w-1/5">
-              <h3>BEDROOMS</h3>
+              <h3 className="text-sm font-bold text-gray-700 pl-5">BEDROOMS</h3>
               <form>
                 <input
                   list="bedrooms"
@@ -94,7 +97,8 @@ const page = () => {
       </div>
 
       <WhyArca />
-    </>
+      <Featured />
+    </div>
   );
 };
 

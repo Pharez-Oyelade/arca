@@ -27,8 +27,8 @@ const Hero = () => {
       className="flex items-center flex-col pt-40 relative h-[92%] min-h-[92%] overflow-hidden"
     >
       <motion.div style={{ opacity, y }} className="text-center space-y-6">
-        <h1 className="text-8xl font-bold opacity-[0.9]">
-          Find a Place You'll Call Home
+        <h1 className="text-8xl font-gebuk font-bold opacity-[0.9]">
+          Find a Place You'll Call Home.
         </h1>
         <p className="text-4xl font-medium opacity-[0.8]">
           We match discerning buyers with exceptional spaces.

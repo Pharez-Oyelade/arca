@@ -5,8 +5,8 @@ import React from "react";
 const Navbar = () => {
   return (
     <header className="px-20 py-3 flex justify-between items-center">
-      <Link href="/">
-        <h1 className="font-prepspe font-bold text-4xl">ARCA</h1>
+      <Link href="/" className="">
+        <h1 className="font-logo font-bold text-4xl">ARCA</h1>
       </Link>
 
       <nav>

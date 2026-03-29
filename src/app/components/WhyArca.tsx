@@ -12,7 +12,7 @@ const WhyArca = () => {
             enableBlur={true}
             baseRotation={5}
             blurStrength={4}
-            textClassName="w-full text-2xl font-medium leading-relaxed text-gray-700 dark:text-gray-300"
+            textClassName="text-gray-700 text-3xl dark:text-gray-300"
           >
             At Arca, we believe finding a home should feel as considered as the
             decision itself. Every listing on our platform is hand-reviewed, and
