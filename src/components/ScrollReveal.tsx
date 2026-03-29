@@ -50,12 +50,15 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     const wordsArray = text.split(/(\s+)/);
     const totalWords = wordsArray.filter((w) => !w.match(/^\s+$/)).length;
 
+    // For long texts, affect last 32 words; for shorter texts, affect roughly half
+    const numAffectedWords = totalWords > 32 ? 32 : Math.max(1, Math.floor(totalWords / 2));
+
     let currentWordIndex = 0;
 
     return wordsArray.map((word, index) => {
       if (word.match(/^\s+$/)) return word;
 
-      const isLast = currentWordIndex >= totalWords - 32;
+      const isLast = currentWordIndex >= totalWords - numAffectedWords;
 
       currentWordIndex++;
 
