@@ -4,6 +4,7 @@ import { properties } from "../assets/properties";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Map } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 interface Property {
   id: number;
@@ -39,10 +40,10 @@ const Featured = () => {
   const [forState, setForState] = useState<SaleType>("All");
   const [propertyType, setPropertyType] = useState<PropertyType>("All");
   const [showFilters, setShowFilters] = useState(false);
-  const [filters, setFilters] = useState({
-    propertyType: "All",
-    forState: "All",
-  });
+  // const [filters, setFilters] = useState({
+  //   propertyType: "All",
+  //   forState: "All",
+  // });
 
   // TODO: add filters
   const applyFilters = () => {
@@ -81,9 +82,18 @@ const Featured = () => {
           <span className="text-xs md:text-sm uppercase font-gebuk font-bold">
             Exclusive Selection
           </span>
-          <h2 className="text-2xl md:text-3xl">
+          {/* <h2 className="text-2xl md:text-3xl">
             Featured <span className="text-gray-500">Properties</span>
-          </h2>
+          </h2> */}
+          <ScrollReveal
+            baseOpacity={0.3}
+            enableBlur={false}
+            baseRotation={1}
+            blurStrength={4}
+            textClassName="text-2xl md:text-3xl"
+          >
+            Featured Properties
+          </ScrollReveal>
         </div>
 
         <div className="flex items-center gap-4">
@@ -91,15 +101,22 @@ const Featured = () => {
             onClick={() => setShowFilters(!showFilters)}
             className="md:hidden bg-gray-100 px-4 py-2 rounded-lg text-sm font-medium"
           >
-            {showFilters ? 'Hide Filters' : 'Show Filters'}
+            {showFilters ? "Hide Filters" : "Show Filters"}
           </button>
           <div className="text-sm md:text-base">View all listings</div>
         </div>
       </div>
 
-      <article id="featured" className="flex flex-col md:flex-row gap-6 md:gap-10 mt-8 md:mt-10">
-        <aside className={`md:sticky md:top-10 md:h-fit w-full md:w-[25%] bg-gray-100 rounded-2xl p-4 md:p-5 space-y-4 md:space-y-5 ${showFilters ? 'block' : 'hidden md:block'}`}>
-          <h3 className="font-bold text-sm md:text-md text-gray-600">REFINE SEARCH</h3>
+      <article
+        id="featured"
+        className="flex flex-col md:flex-row gap-6 md:gap-10 mt-8 md:mt-10"
+      >
+        <aside
+          className={`md:sticky md:top-10 md:h-fit w-full md:w-[25%] bg-gray-100 rounded-2xl p-4 md:p-5 space-y-4 md:space-y-5 ${showFilters ? "block" : "hidden md:block"}`}
+        >
+          <h3 className="font-bold text-sm md:text-md text-gray-600">
+            REFINE SEARCH
+          </h3>
 
           <div className="flex flex-col justify-between">
             <h4 className="pl-2 pb-2 text-sm md:text-base">For</h4>
@@ -131,59 +148,78 @@ const Featured = () => {
             </div>
           </div>
 
-          <Button size="lg" className="py-3 md:py-5 w-full md:w-auto" onClick={applyFilters}>
+          <Button
+            size="lg"
+            className="py-3 md:py-5 w-full md:w-auto"
+            onClick={applyFilters}
+          >
             Apply Filters
           </Button>
         </aside>
 
         {/* ............. FEATURED GRID ................... */}
-        <main className="w-full md:w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {featuredProperty.map((property) => (
-            <div
-              key={property.id}
-              className="w-full h-full overflow-hidden rounded-lg shadow-lg relative group"
-            >
-              <div className="w-full h-[55%] overflow-hidden">
-                <Image
-                  src={property.image}
-                  alt="property image"
-                  width={400}
-                  height={400}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                />
-              </div>
-              <div className="p-3 bg-white h-[40%]">
-                <span className="uppercase text-xs md:text-sm text-gray-500">
-                  {property.type}
-                </span>
-                <h3 className="text-lg md:text-xl lg:text-2xl">{property.name}</h3>
-                <div className="text-xs md:text-sm text-gray-600">
-                  <Map
-                    className="inline mr-1"
-                    size={14}
-                    aria-label="location"
-                  />
-                  <span>{property.location}</span>
-                </div>
-
-                <div className="pt-3 md:pt-5 font-bold text-xs md:text-sm text-gray-700">
-                  {property.bedrooms} beds | {property.bathrooms} baths |{" "}
-                  {property.area} sqft
-                </div>
-
-                <div className="pt-1 md:pt-2 font-bold text-base md:text-lg">
-                  ${property.price.toLocaleString()}
-                  <sup className="text-gray-500 text-sm">
-                    {property.saleType === "for sale" ? "USD" : "/mo"}
-                  </sup>
-                </div>
-
-                <div className="absolute top-2 left-2 bg-black text-white py-1 px-3 md:px-5 rounded-2xl text-xs md:text-sm">
-                  {property.saleType}
-                </div>
-              </div>
+        <main className="w-full md:w-[75%]">
+          <span className="text-gray-500 mb-10">
+            Showing {featuredProperty.length}{" "}
+            {featuredProperty.length === 1 ? "property" : "properties"}
+          </span>
+          {featuredProperty.length === 0 ? (
+            <div className="text-center py-20">
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-4">No properties found</h3>
+              <p className="text-gray-500">Try adjusting your filters to see more results.</p>
             </div>
-          ))}
+          ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            {featuredProperty.map((property) => (
+              <div
+                key={property.id}
+                className="w-full h-full overflow-hidden rounded-lg shadow-lg relative group"
+              >
+                <div className="w-full h-[55%] overflow-hidden">
+                  <Image
+                    src={property.image}
+                    alt="property image"
+                    width={400}
+                    height={400}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                  />
+                </div>
+                <div className="p-3 bg-white h-[40%]">
+                  <span className="uppercase text-xs md:text-sm text-gray-500">
+                    {property.type}
+                  </span>
+                  <h3 className="text-lg md:text-xl lg:text-2xl">
+                    {property.name}
+                  </h3>
+                  <div className="text-xs md:text-sm text-gray-600">
+                    <Map
+                      className="inline mr-1"
+                      size={14}
+                      aria-label="location"
+                    />
+                    <span>{property.location}</span>
+                  </div>
+
+                  <div className="pt-3 md:pt-5 font-bold text-xs md:text-sm text-gray-700">
+                    {property.bedrooms} beds | {property.bathrooms} baths |{" "}
+                    {property.area} sqft
+                  </div>
+
+                  <div className="pt-1 md:pt-2 font-bold text-base md:text-lg">
+                    ${property.price.toLocaleString()}
+                    <sup className="text-gray-500 text-sm">
+                      {property.saleType === "for sale" ? "USD" : "/mo"}
+                    </sup>
+                  </div>
+
+                  <div className="absolute top-2 left-2 bg-black text-white py-1 px-3 md:px-5 rounded-2xl text-xs md:text-sm">
+                    {property.saleType}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          )}
         </main>
       </article>
     </section>
