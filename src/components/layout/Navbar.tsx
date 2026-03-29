@@ -74,7 +74,7 @@ const Navbar = () => {
               Search
             </Link>
             <Link
-              href="#"
+              href="/products"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Search
