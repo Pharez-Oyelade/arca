@@ -14,7 +14,7 @@ const Filters = () => {
     new Set(products.map((product) => product.location)),
   );
   return (
-    <div className="flex gap-10 items-center">
+    <div className="lg:flex gap-10 items-center hidden">
       <div className="flex justify-between gap-3 pb-3 border-b-2 px-5">
         <input
           type="text"
