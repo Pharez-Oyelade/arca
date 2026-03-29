@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Featured from "./components/Featured";
 import Services from "./components/Services";
 import ContactCard from "./components/ContactCard";
+import Testimonial from "./components/Testimonial";
 
 const page = () => {
   return (
@@ -102,6 +103,7 @@ const page = () => {
       <Featured />
       <Services />
       <ContactCard />
+      <Testimonial />
     </div>
   );
 };

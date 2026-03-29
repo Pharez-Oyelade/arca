@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Services = () => {
   return (
-    <section className="bg-[#151717] text-white py-20 bg-fixed">
+    <section className="bg-[#151717] text-white py-20">
       <div className="flex justify-between px-20 mb-20">
         <div className="1/3">
           <h3>Services</h3>
