@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import WhyArca from "./components/WhyArca";
 import { Button } from "@/components/ui/button";
 import Featured from "./components/Featured";
+import Services from "./components/Services";
 
 const page = () => {
   return (
@@ -98,6 +99,7 @@ const page = () => {
 
       <WhyArca />
       <Featured />
+      <Services />
     </div>
   );
 };
