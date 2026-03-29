@@ -20,7 +20,7 @@ const ProductGrid = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-5 w-full mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mt-5">
         {displayedProperties.map((property) => (
           <div key={property.id} className="w-full mb-5 group">
             <div className="w-full h-[250px] overflow-hidden">
@@ -55,6 +55,13 @@ const ProductGrid = () => {
                 <Dot />
                 {property.area} sqft
               </div>
+              <p className="text-base">{property.location}</p>
+            </div>
+
+            <div className="pt-5">
+              <button className="border-b-2 border-gray-800 text-sm font-medium pb-2 cursor-pointer">
+                View Details
+              </button>
             </div>
           </div>
         ))}
