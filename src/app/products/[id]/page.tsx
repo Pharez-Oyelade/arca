@@ -98,7 +98,60 @@ const page = () => {
         </div>
       </div>
 
+      {/* <hr /> */}
+
+      {/* DESCRIPTION */}
+      <div className="py-10 flex justify-between">
+        <h2 className="font-semibold text-3xl tracking-wider">
+          About <br /> <span className="text-gray-300">this home</span>
+        </h2>
+        <p className="text-2xl w-[700px]">{product.description}</p>
+      </div>
+
       <hr />
+
+      {/* OTHER DETAILS */}
+      <div className="py-20 flex justify-between">
+        <h2 className="font-semibold text-3xl tracking-wider">
+          Other <br /> <span className="text-gray-300">details</span>
+        </h2>
+
+        <div className="grid grid-cols-3 gap-10 w-[700px]">
+          <div>
+            <span className="text-sm text-gray-500">Property Type</span>
+            <p className="capitalize text-xl">{product.type}</p>
+          </div>
+
+          <div>
+            <span className="text-sm text-gray-500">Total Area</span>
+            <p className="capitalize text-xl">{product.area}</p>
+          </div>
+
+          <div>
+            <span className="text-sm text-gray-500">Year Built</span>
+            <p className="capitalize text-xl">{product.details.yearBuilt}</p>
+          </div>
+
+          <div>
+            <span className="text-sm text-gray-500">Floors</span>
+            <p className="capitalize text-xl">{product.details.floors}</p>
+          </div>
+
+          <div>
+            <span className="text-sm text-gray-500">Parking</span>
+            <p className="capitalize text-xl">
+              {product.details.parking ? product.details.parking : "No"}
+            </p>
+          </div>
+
+          <div>
+            <span className="text-sm text-gray-500">Furnished</span>
+            <p className="capitalize text-xl">
+              {product.details.furnished ? "Yes" : "No"}
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
