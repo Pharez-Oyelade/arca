@@ -29,17 +29,44 @@ const PROPERTY_TYPES = [
   "Villa",
 ] as const;
 
-const SALE_TYPES = ["Buy", "Rent", "New Dev"] as const;
+const SALE_TYPES = ["All", "Buy", "Rent", "New Dev"] as const;
 
 type SaleType = (typeof SALE_TYPES)[number];
 type PropertyType = (typeof PROPERTY_TYPES)[number];
 
 const Featured = () => {
   const [featuredProperty, setFeaturedProperty] = useState<Property[]>([]);
-  const [forState, setForState] = useState<SaleType>("Buy");
+  const [forState, setForState] = useState<SaleType>("All");
   const [propertyType, setPropertyType] = useState<PropertyType>("All");
+  const [filters, setFilters] = useState({
+    propertyType: "All",
+    forState: "All",
+  });
 
   // TODO: add filters
+  const applyFilters = () => {
+    let filtered = properties.filter((property) => property.featured);
+
+    if (forState !== "All") {
+      filtered = filtered.filter((property) => {
+        if (forState === "Buy")
+          return (
+            property.saleType === "for sale" || property.saleType === "new dev"
+          );
+        if (forState === "Rent") return property.saleType === "for rent";
+        if (forState === "New Dev") return property.saleType === "new dev";
+      });
+    }
+
+    if (propertyType !== "All") {
+      filtered = filtered.filter(
+        (property) =>
+          property.type.toLowerCase() === propertyType.toLowerCase(),
+      );
+    }
+
+    setFeaturedProperty(filtered);
+  };
 
   useEffect(() => {
     // filter properties for featured ones
@@ -95,17 +122,19 @@ const Featured = () => {
             </div>
           </div>
 
-          <Button>Apply Filters</Button>
+          <Button size="lg" className="py-5" onClick={applyFilters}>
+            Apply Filters
+          </Button>
         </aside>
 
         {/* ............. FEATURED GRID ................... */}
-        <main className="w-[75%] grid grid-cols-3 gap-10">
+        <main className="w-[75%] grid grid-cols-3 gap-5">
           {featuredProperty.map((property) => (
             <div
               key={property.id}
-              className="w-full overflow-hidden rounded-lg shadow-lg relative group"
+              className="w-full h-full overflow-hidden rounded-lg shadow-lg relative group"
             >
-              <div className="w-full h-[60%] overflow-hidden">
+              <div className="w-full h-[55%] overflow-hidden">
                 <Image
                   src={property.image}
                   alt="property image"
