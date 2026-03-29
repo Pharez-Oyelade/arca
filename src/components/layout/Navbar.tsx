@@ -178,7 +178,9 @@ const Navbar = () => {
         >
           <nav className="px-4 py-4">
             <ul className="flex flex-col gap-4 text-lg font-medium">
-              <li>Search</li>
+              <li>
+                <a href="/products">Search</a>
+              </li>
               <li>Agents</li>
               <li>Buy</li>
               <li>Rent</li>
