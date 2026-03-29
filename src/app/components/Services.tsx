@@ -1,6 +1,7 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MoveRight } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Services = () => {
   return (
@@ -102,6 +103,28 @@ const Services = () => {
             </div>
           </div>
         </Link>
+      </div>
+
+      <hr />
+
+      <div className="pt-20 px-20 w-2/3">
+        <h2 className="text-3xl">
+          Real estate rarely fits neatly into one box. That's why our services
+          are built to flex around your needs{" "}
+          <span className="text-gray-400">
+            — whether you're buying, selling, renting, or simply figuring out
+            what comes next.
+          </span>
+        </h2>
+
+        <Button
+          variant="secondary"
+          size="lg"
+          className="mt-10 px-5 py-5 rounded-full"
+        >
+          Discover Our Services
+          <MoveRight className="ml-2" />
+        </Button>
       </div>
     </section>
   );
