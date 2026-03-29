@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { Star, Quote } from "lucide-react";
+import { motion, useTransform, useScroll } from "motion/react";
 
 const Testimonials = [
   {
@@ -55,6 +56,18 @@ const Testimonial = () => {
     (testimonial) => testimonial.id === currentCount,
   );
 
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"],
+  });
+
+  const clipPath = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["inset(0% 50% 0% 50%)", "inset(0% 0% 0% 0%)"],
+  );
+
   return (
     <section className="p-20">
       <div>
@@ -65,7 +78,11 @@ const Testimonial = () => {
       </div>
 
       <div className="flex gap-10 mt-20">
-        <div className="w-[55%] overflow-hidden">
+        <motion.div
+          ref={ref}
+          style={{ clipPath }}
+          className="w-[55%] overflow-hidden"
+        >
           <Image
             src="/images/customer_review.jpg"
             alt="customer review"
@@ -73,7 +90,7 @@ const Testimonial = () => {
             height={500}
             className="w-full"
           />
-        </div>
+        </motion.div>
 
         {/* ........ REVIEWS ............... */}
         <div className="w-[40%] relative">

@@ -11,7 +11,7 @@ import Testimonial from "./components/Testimonial";
 const page = () => {
   return (
     <div>
-      <div className="hero-wrapper h-screen">
+      <div className="hero-wrapper h-screen rerlative">
         <Navbar />
         <Hero />
       </div>
