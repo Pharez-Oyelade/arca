@@ -24,16 +24,19 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="flex items-center flex-col pt-40 relative h-[92%] min-h-[92%] overflow-hidden"
+      className="flex items-center flex-col pt-20 md:pt-32 lg:pt-40 relative h-[92%] min-h-[92%] overflow-hidden"
     >
-      <motion.div style={{ opacity, y }} className="text-center space-y-6">
-        <h1 className="text-8xl font-gebuk font-bold opacity-[0.9]">
+      <motion.div
+        style={{ opacity, y }}
+        className="text-center space-y-4 md:space-y-6 px-4"
+      >
+        <h1 className="text-4xl md:text-6xl lg:text-8xl font-gebuk font-bold opacity-[0.9] leading-tight">
           Find a Place You'll Call Home.
         </h1>
-        <p className="text-4xl font-medium opacity-[0.8]">
+        <p className="text-xl md:text-2xl lg:text-4xl font-medium opacity-[0.8]">
           We match discerning buyers with exceptional spaces.
         </p>
-        <Button size="lg" className="p-6 rounded-4xl text-md">
+        <Button size="lg" className="p-4 md:p-6 rounded-4xl text-md">
           Explore Properties
         </Button>
       </motion.div>
@@ -52,7 +55,7 @@ const Hero = () => {
       </motion.div> */}
       <motion.div
         style={{ scale: imageScale }}
-        className="absolute bottom-0 right-1/2 translate-x-1/2 h-[60%] overflow-hidden z-0 pointer-events-none"
+        className="absolute bottom-0 right-1/2 translate-x-1/2 h-[40%] md:h-[50%] lg:h-[60%] overflow-hidden z-0 pointer-events-none"
       >
         <Image
           src="/building.png"

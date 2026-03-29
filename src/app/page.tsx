@@ -17,14 +17,16 @@ const page = () => {
       </div>
 
       <div>
-        <div className="absolute -bottom-15 w-3/4 right-1/2 translate-x-1/2 bg-black/30 z-50 px-5 py-8 rounded-lg backdrop-blur-lg">
-          <div className="flex items-center gap-5">
-            <div className="w-1/5">
-              <h3 className="text-sm font-bold text-gray-700 pl-5">LOCATION</h3>
+        <div className="absolute -bottom-10 md:-bottom-15 left-1/2 transform -translate-x-1/2 w-[90%] md:w-3/4 bg-black/30 z-50 px-4 md:px-5 py-6 md:py-8 rounded-lg backdrop-blur-lg">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-5">
+            <div className="w-full md:w-1/5">
+              <h3 className="text-xs md:text-sm font-bold text-gray-700 pl-2 md:pl-5 mb-1">
+                LOCATION
+              </h3>
               <form>
                 <input
                   list="locations"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-5 py-1 rounded-2xl w-full"
+                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="City, neighborhood, e.t.c"
                 />
                 <datalist id="locations">
@@ -34,12 +36,14 @@ const page = () => {
                 </datalist>
               </form>
             </div>
-            <div className="w-1/5">
-              <h3 className="text-sm font-bold text-gray-700 pl-5">TYPE</h3>
+            <div className="w-full md:w-1/5">
+              <h3 className="text-xs md:text-sm font-bold text-gray-700 pl-2 md:pl-5 mb-1">
+                TYPE
+              </h3>
               <form>
                 <input
                   list="types"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-5 py-1 rounded-2xl w-full"
+                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="Any Type"
                 />
                 <datalist id="types">
@@ -52,14 +56,14 @@ const page = () => {
                 </datalist>
               </form>
             </div>
-            <div className="w-1/5">
-              <h3 className="text-sm font-bold text-gray-700 pl-5">
+            <div className="w-full md:w-1/5">
+              <h3 className="text-xs md:text-sm font-bold text-gray-700 pl-2 md:pl-5 mb-1">
                 PRICE RANGE
               </h3>
               <form>
                 <input
                   list="prices"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-5 py-1 rounded-2xl w-full"
+                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="Any Price"
                 />
                 <datalist id="prices">
@@ -71,12 +75,14 @@ const page = () => {
                 </datalist>
               </form>
             </div>
-            <div className="w-1/5">
-              <h3 className="text-sm font-bold text-gray-700 pl-5">BEDROOMS</h3>
+            <div className="w-full md:w-1/5">
+              <h3 className="text-xs md:text-sm font-bold text-gray-700 pl-2 md:pl-5 mb-1">
+                BEDROOMS
+              </h3>
               <form>
                 <input
                   list="bedrooms"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-5 py-1 rounded-2xl w-full"
+                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="Any"
                 />
                 <datalist id="bedrooms">
@@ -90,8 +96,11 @@ const page = () => {
               </form>
             </div>
 
-            <div className="1/5 pl-10">
-              <Button size="lg" className="px-10 py-5">
+            <div className="w-full md:w-1/5 md:pl-4 lg:pl-10">
+              <Button
+                size="lg"
+                className="w-full md:w-auto px-8 md:px-10 py-3 md:py-5"
+              >
                 Search
               </Button>
             </div>

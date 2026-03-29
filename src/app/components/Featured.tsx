@@ -38,6 +38,7 @@ const Featured = () => {
   const [featuredProperty, setFeaturedProperty] = useState<Property[]>([]);
   const [forState, setForState] = useState<SaleType>("All");
   const [propertyType, setPropertyType] = useState<PropertyType>("All");
+  const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState({
     propertyType: "All",
     forState: "All",
@@ -74,32 +75,40 @@ const Featured = () => {
     setFeaturedProperty(featured);
   }, []);
   return (
-    <section className="py-20 px-20">
-      <div className="flex justify-between items-center">
+    <section className="py-10 md:py-16 lg:py-20 px-4 md:px-8 lg:px-20">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0">
         <div>
-          <span className="text-sm uppercase font-gebuk font-bold">
+          <span className="text-xs md:text-sm uppercase font-gebuk font-bold">
             Exclusive Selection
           </span>
-          <h2 className="text-3xl">
+          <h2 className="text-2xl md:text-3xl">
             Featured <span className="text-gray-500">Properties</span>
           </h2>
         </div>
 
-        <div>View all listings </div>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="md:hidden bg-gray-100 px-4 py-2 rounded-lg text-sm font-medium"
+          >
+            {showFilters ? 'Hide Filters' : 'Show Filters'}
+          </button>
+          <div className="text-sm md:text-base">View all listings</div>
+        </div>
       </div>
 
-      <article id="featured" className="flex gap-10 mt-10">
-        <aside className="sticky top-10 h-fit w-[25%] bg-gray-100 rounded-2xl p-5 space-y-5">
-          <h3 className="font-bold text-md text-gray-600">REFINE SEARCH</h3>
+      <article id="featured" className="flex flex-col md:flex-row gap-6 md:gap-10 mt-8 md:mt-10">
+        <aside className={`md:sticky md:top-10 md:h-fit w-full md:w-[25%] bg-gray-100 rounded-2xl p-4 md:p-5 space-y-4 md:space-y-5 ${showFilters ? 'block' : 'hidden md:block'}`}>
+          <h3 className="font-bold text-sm md:text-md text-gray-600">REFINE SEARCH</h3>
 
           <div className="flex flex-col justify-between">
-            <h4 className="pl-2 pb-2">For</h4>
-            <div className="flex gap-2 items-center">
+            <h4 className="pl-2 pb-2 text-sm md:text-base">For</h4>
+            <div className="flex gap-2 items-center flex-wrap">
               {SALE_TYPES.map((sale) => (
                 <div
                   onClick={() => setForState(sale)}
                   key={sale}
-                  className={`${forState === sale ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-3 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors`}
+                  className={`${forState === sale ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-2 md:px-3 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors text-xs md:text-sm`}
                 >
                   {sale}
                 </div>
@@ -108,13 +117,13 @@ const Featured = () => {
           </div>
 
           <div>
-            <h4 className="pl-2 pb-2">Type</h4>
+            <h4 className="pl-2 pb-2 text-sm md:text-base">Type</h4>
             <div className="flex gap-2 items-center flex-wrap">
               {PROPERTY_TYPES.map((type) => (
                 <div
                   onClick={() => setPropertyType(type)}
                   key={type}
-                  className={`${propertyType === type ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-3 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors`}
+                  className={`${propertyType === type ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-2 md:px-3 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors text-xs md:text-sm`}
                 >
                   {type}
                 </div>
@@ -122,13 +131,13 @@ const Featured = () => {
             </div>
           </div>
 
-          <Button size="lg" className="py-5" onClick={applyFilters}>
+          <Button size="lg" className="py-3 md:py-5 w-full md:w-auto" onClick={applyFilters}>
             Apply Filters
           </Button>
         </aside>
 
         {/* ............. FEATURED GRID ................... */}
-        <main className="w-[75%] grid grid-cols-3 gap-5">
+        <main className="w-full md:w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {featuredProperty.map((property) => (
             <div
               key={property.id}
@@ -144,32 +153,32 @@ const Featured = () => {
                 />
               </div>
               <div className="p-3 bg-white h-[40%]">
-                <span className="uppercase text-sm text-gray-500">
+                <span className="uppercase text-xs md:text-sm text-gray-500">
                   {property.type}
                 </span>
-                <h3 className="text-2xl">{property.name}</h3>
-                <div className="text-sm text-gray-600">
+                <h3 className="text-lg md:text-xl lg:text-2xl">{property.name}</h3>
+                <div className="text-xs md:text-sm text-gray-600">
                   <Map
                     className="inline mr-1"
-                    size={16}
+                    size={14}
                     aria-label="location"
                   />
                   <span>{property.location}</span>
                 </div>
 
-                <div className="pt-5 font-bold text-sm text-gray-700">
+                <div className="pt-3 md:pt-5 font-bold text-xs md:text-sm text-gray-700">
                   {property.bedrooms} beds | {property.bathrooms} baths |{" "}
                   {property.area} sqft
                 </div>
 
-                <div className="pt-2 font-bold text-lg">
+                <div className="pt-1 md:pt-2 font-bold text-base md:text-lg">
                   ${property.price.toLocaleString()}
-                  <sup className="text-gray-500">
+                  <sup className="text-gray-500 text-sm">
                     {property.saleType === "for sale" ? "USD" : "/mo"}
                   </sup>
                 </div>
 
-                <div className="absolute top-2 left-2 bg-black text-white py-1 px-5 rounded-2xl">
+                <div className="absolute top-2 left-2 bg-black text-white py-1 px-3 md:px-5 rounded-2xl text-xs md:text-sm">
                   {property.saleType}
                 </div>
               </div>
