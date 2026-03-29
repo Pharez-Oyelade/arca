@@ -5,6 +5,7 @@ import React from "react";
 import Image from "next/image";
 import { Dot } from "lucide-react";
 import { useProductContext } from "@/app/context/ProductContext";
+import Link from "next/link";
 
 const ProductGrid = () => {
   const PROPERTY_PER_PAGE = 12;
@@ -30,15 +31,17 @@ const ProductGrid = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mt-5">
         {displayedProperties.map((property) => (
           <div key={property.id} className="w-full mb-5 group">
-            <div className="w-full h-[250px] overflow-hidden">
-              <Image
-                src={property.image}
-                alt={property.name}
-                width={700}
-                height={700}
-                className="group-hover:scale-105 transition-all duration-300 ease-in-out"
-              />
-            </div>
+            <Link href={`/products/${property.id}`}>
+              <div className="w-full h-[250px] overflow-hidden">
+                <Image
+                  src={property.image}
+                  alt={property.name}
+                  width={700}
+                  height={700}
+                  className="group-hover:scale-105 transition-all duration-300 ease-in-out"
+                />
+              </div>
+            </Link>
 
             <div className="pt-5">
               <h3 className="text-lg font-medium">{property.name}</h3>
