@@ -100,7 +100,7 @@ const Testimonial = () => {
               <div
                 onClick={() => setCurrentCount(count)}
                 key={count}
-                className={`w-6 h-6 md:w-8 md:h-8 rounded-full border p-1 md:p-2 flex items-center justify-center cursor-pointer ${currentCount === count ? "border-black text-black" : "border-gray-300 text-gray-400"} transition-colors duration-300 ease-in-out text-sm md:text-base`}
+                className={`w-8 h-8 rounded-full border p-1 md:p-2 flex items-center justify-center cursor-pointer ${currentCount === count ? "border-black text-black" : "border-gray-300 text-gray-400"} transition-colors duration-300 ease-in-out text-sm md:text-base`}
               >
                 {count}
               </div>
