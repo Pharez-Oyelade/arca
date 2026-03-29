@@ -63,6 +63,7 @@ const Hero = () => {
           width={700}
           height={700}
           className="object-cover"
+          loading="eager"
         />
       </motion.div>
     </section>
