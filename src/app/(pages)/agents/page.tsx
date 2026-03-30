@@ -38,7 +38,7 @@ const page = () => {
       </div>
 
       <div className="mt-10">
-        <div className="flex flex-col md:flex-row justify-between gap-20 w-full">
+        <div className="flex flex-col md:flex-row justify-between gap-5 md:gap-20 w-full">
           <motion.div
             initial={{
               clipPath: "inset(0% 50% 0% 50%)",
@@ -48,7 +48,7 @@ const page = () => {
             }}
             transition={{
               duration: 1.5,
-              ease: [0.77, 0, 0.175, 1], // smoother than easeInOut
+              ease: [0.77, 0, 0.175, 1],
             }}
             className="w-full md:w-[80%] overflow-hidden"
           >
