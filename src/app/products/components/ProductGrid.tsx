@@ -13,7 +13,7 @@ const ProductGrid = ({ products }: { products: any[] }) => {
   const displayedProperties = properties.slice(0, PROPERTY_PER_PAGE);
 
   return (
-    <div className="mt-20">
+    <div className="mt-10 md:mt-20">
       <div className="flex justify-between items-center">
         <span className="tracking-tighter">{properties.length} Results</span>
         <div>
