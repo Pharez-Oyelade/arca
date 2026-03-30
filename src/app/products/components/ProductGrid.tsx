@@ -1,16 +1,13 @@
-"use client";
-
 import React from "react";
 // import { properties } from "@/app/assets/properties";
 import Image from "next/image";
 import { Dot } from "lucide-react";
-import { useProductContext } from "@/app/context/ProductContext";
 import Link from "next/link";
 
-const ProductGrid = () => {
+const ProductGrid = ({ products }: { products: any[] }) => {
   const PROPERTY_PER_PAGE = 12;
 
-  const { products } = useProductContext();
+  // const { products } = useProductContext();
 
   const properties = products;
   const displayedProperties = properties.slice(0, PROPERTY_PER_PAGE);

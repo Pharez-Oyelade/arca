@@ -1,14 +1,26 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import { Search, ChevronDown } from "lucide-react";
 import { properties } from "@/app/assets/properties";
 
-const Filters = () => {
-  const products = properties;
+// type SaleType = "For Sale" | "For Rent" | "";
 
-  const [saleDropdown, setSaleDropdown] = useState(false);
-  const [saleType, setSaleType] = useState("");
+type FiltersProps = {
+  products: any[];
+  saleType: string;
+  setSaleType: (saleType: string) => void;
+  saleDropdown: boolean;
+  setSaleDropdown: (saleDropdown: boolean) => void;
+};
+
+const Filters = ({
+  products,
+  saleType,
+  setSaleType,
+  saleDropdown,
+  setSaleDropdown,
+}: FiltersProps) => {
+  // const [saleDropdown, setSaleDropdown] = useState(false);
+  // const [saleType, setSaleType] = useState("");
 
   const uniqueLocations = Array.from(
     new Set(products.map((product) => product.location)),
@@ -35,16 +47,29 @@ const Filters = () => {
         </select>
       </div>
 
-      <div className="relative">
+      <div className="relative w-[150px]">
         <div
           onClick={() => setSaleDropdown(!saleDropdown)}
-          className="border px-3 py-2 flex items-center gap-5 cursor-pointer"
+          className="border px-3 py-2 flex justify-between items-center gap-5 cursor-pointer w-full"
         >
           <span>{saleType || "For Sale"}</span>
           <ChevronDown size={18} />
         </div>
         {saleDropdown && (
           <div className="absolute top-full left-0 w-full border mt-2 p-2 bg-white">
+            <div
+              onClick={() => setSaleType("All")}
+              className="flex gap-2 items-center"
+            >
+              <input
+                type="checkbox"
+                name="saleType"
+                value="All"
+                onChange={(e) => setSaleType(e.target.value)}
+                checked={saleType === "All"}
+              />
+              <label htmlFor="all">All</label>
+            </div>
             <div
               onClick={() => setSaleType("For Sale")}
               className="flex gap-2 items-center"
