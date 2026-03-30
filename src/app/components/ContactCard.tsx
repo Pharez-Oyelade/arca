@@ -1,17 +1,27 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 
-const ContactCard = () => {
+type ContactCardProps = {
+  header: string;
+  text: string;
+  mainButtonText: string;
+  secondaryButtonText?: string;
+};
+
+const ContactCard = ({
+  header,
+  text,
+  mainButtonText,
+  secondaryButtonText,
+}: ContactCardProps) => {
   return (
     <div className="py-10 md:py-16 lg:py-20 px-4 md:px-8 lg:px-20">
       <div className="bg-amber-700 flex flex-col md:flex-row justify-between items-center rounded-4xl py-10 md:py-16 lg:py-20 px-4 md:px-6 lg:px-10 text-white relative overflow-hidden">
         <div className="space-y-2 mb-6 md:mb-0">
           <h3 className="text-2xl md:text-3xl lg:text-4xl w-full md:w-2/3">
-            Ready to find your perfect space?
+            {header}
           </h3>
-          <p className="text-gray-300 text-sm md:text-base">
-            Talk to an advisor today — no commitment, just clarity.
-          </p>
+          <p className="text-gray-300 text-sm md:text-base">{text}</p>
         </div>
 
         <div className="flex flex-col md:flex-row gap-3">
@@ -20,14 +30,14 @@ const ContactCard = () => {
             size="lg"
             className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-amber-700"
           >
-            Get in Touch
+            {mainButtonText}
           </Button>
           <Button
             variant="outline"
             size="lg"
             className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-white bg-transparent"
           >
-            View All Listings
+            {secondaryButtonText}
           </Button>
         </div>
 

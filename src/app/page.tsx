@@ -111,7 +111,12 @@ const page = () => {
       <WhyArca />
       <Featured />
       <Services />
-      <ContactCard />
+      <ContactCard
+        header="Ready to find your perfect space"
+        text="Talk to an advisor today - no commitment, just clarity"
+        mainButtonText="Get in Touch"
+        secondaryButtonText="View All Listings"
+      />
       <Testimonial />
     </div>
   );
