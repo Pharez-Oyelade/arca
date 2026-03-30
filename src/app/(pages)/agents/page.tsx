@@ -26,7 +26,7 @@ const page = () => {
         </p>
       </div>
 
-      <div className="mt-10 w-[350px]">
+      <div className="mt-10 w-full md:w-[350px]">
         <div className="flex justify-between items-center pb-3 px-3 border-b-2 w-full">
           <input
             type="text"
@@ -38,7 +38,7 @@ const page = () => {
       </div>
 
       <div className="mt-10">
-        <div className="flex justify-between gap-20 w-full">
+        <div className="flex flex-com md:flex-row justify-between gap-20 w-full">
           <motion.div
             initial={{
               clipPath: "inset(0% 50% 0% 50%)",
