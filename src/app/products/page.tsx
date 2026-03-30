@@ -8,6 +8,7 @@ import { properties } from "../assets/properties";
 const page = () => {
   const [saleType, setSaleType] = useState("");
   const [saleDropdown, setSaleDropdown] = useState(false);
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
   const [products, setProducts] = useState(properties);
 
@@ -42,6 +43,8 @@ const page = () => {
         setSaleType={setSaleType}
         saleDropdown={saleDropdown}
         setSaleDropdown={setSaleDropdown}
+        isMobileFiltersOpen={isMobileFiltersOpen}
+        setIsMobileFiltersOpen={setIsMobileFiltersOpen}
       />
       <div>
         <ProductGrid products={products} />
