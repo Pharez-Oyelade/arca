@@ -38,7 +38,7 @@ const page = () => {
       </div>
 
       <div className="mt-10">
-        <div className="flex flex-com md:flex-row justify-between gap-20 w-full">
+        <div className="flex flex-col md:flex-row justify-between gap-20 w-full">
           <motion.div
             initial={{
               clipPath: "inset(0% 50% 0% 50%)",
