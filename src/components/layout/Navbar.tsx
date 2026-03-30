@@ -88,7 +88,7 @@ const Navbar = () => {
               Agents
             </Link>
             <Link
-              href="#"
+              href="/agents"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Agents
@@ -181,7 +181,9 @@ const Navbar = () => {
               <li>
                 <a href="/products">Search</a>
               </li>
-              <li>Agents</li>
+              <li>
+                <a href="/agents">Agents</a>
+              </li>
               <li>Buy</li>
               <li>Rent</li>
               <li>Resources</li>
