@@ -186,18 +186,22 @@ const Navbar = () => {
           className={`bg-white transition-transform duration-500 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-[200%]"}`}
         >
           <nav className="px-4 py-4">
-            <ul className="flex flex-col gap-4 text-lg font-medium">
-              <li>
+            <div className="flex flex-col gap-4 text-lg font-medium">
+              <div>
                 <a href="/products">Search</a>
-              </li>
-              <li>
+              </div>
+              <div>
                 <a href="/agents">Agents</a>
-              </li>
-              <li>Buy</li>
-              <li>Rent</li>
-              <li>Resources</li>
-              <li>About</li>
-            </ul>
+              </div>
+              <div onClick={() => setSaleType("For Sale")}>
+                <a href="/products">Buy</a>
+              </div>
+              <div onClick={() => setSaleType("For Rent")}>
+                <a href="/products">Rent</a>
+              </div>
+              <div>Resources</div>
+              <div>About</div>
+            </div>
             <div className="mt-4">
               <Button size="lg" className="w-full rounded-4xl">
                 Sign In
