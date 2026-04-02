@@ -4,10 +4,13 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import React, { useEffect, useState } from "react";
 import { X, Equal } from "lucide-react";
+import { useProductContext } from "@/app/context/ProductContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const { setSaleType } = useProductContext();
 
   // disable scrolling when mobile menu is open
   useEffect(() => {
@@ -68,7 +71,7 @@ const Navbar = () => {
         <div className="flex gap-8 items-center text-lg lg:text-xl font-medium">
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
-              href="#"
+              href="/products"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Search
@@ -82,7 +85,7 @@ const Navbar = () => {
           </div>
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
-              href="#"
+              href="/agents"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Agents
@@ -94,29 +97,35 @@ const Navbar = () => {
               Agents
             </Link>
           </div>
-          <div className="overflow-hidden h-8 group flex flex-col gap-0">
+          <div
+            onClick={() => setSaleType("For Sale")}
+            className="overflow-hidden h-8 group flex flex-col gap-0"
+          >
             <Link
-              href="#"
+              href="/products"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Buy
             </Link>
             <Link
-              href="#"
+              href="/products"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Buy
             </Link>
           </div>
-          <div className="overflow-hidden h-8 group flex flex-col gap-0">
+          <div
+            onClick={() => setSaleType("For Rent")}
+            className="overflow-hidden h-8 group flex flex-col gap-0"
+          >
             <Link
-              href="#"
+              href="/products"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Rent
             </Link>
             <Link
-              href="#"
+              href="/products"
               className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
             >
               Rent
