@@ -104,7 +104,10 @@ const AgentGrid: React.FC<AgentGridProps> = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-0">
         {displayedAgents.map((agent) => (
-          <div key={agent.id} className="border py-15 px-10 h-auto relative">
+          <div
+            key={agent.id}
+            className="border py-15 px-5 md:px-10 h-auto relative"
+          >
             <div className="pb-10">
               <div className="w-[100px] h-[100px] overflow-hidden border-2 rounded-full">
                 <Image
