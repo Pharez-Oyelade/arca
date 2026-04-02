@@ -19,13 +19,13 @@ const page = () => {
     return <div>Product not found</div>;
   }
   return (
-    <section className="px-4 md:px-8 lg:px-20">
+    <section className="">
       <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
         <Image
           src={product.image}
           alt={product.name}
-          width={700}
-          height={700}
+          width={900}
+          height={900}
           className="w-full h-full object-cover"
         ></Image>
       </div>
