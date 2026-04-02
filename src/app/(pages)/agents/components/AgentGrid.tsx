@@ -1,9 +1,33 @@
-"use client";
-
-import React, { useState } from "react";
-import { agents } from "@/app/assets/agents";
+import React from "react";
+// import { agents } from "@/app/assets/agents";
 import Image from "next/image";
 import { Star } from "lucide-react";
+
+interface AgentStats {
+  sold?: number;
+  closed?: number;
+  placed?: number;
+  yearsExperience: number;
+  rating: number;
+}
+
+interface Agent {
+  id: string | number;
+  image: string;
+  name: string;
+  speciality: string;
+  stats: AgentStats;
+  homeType: string[];
+  specialDetail: string;
+  specialDetailType: string;
+  available: boolean;
+}
+
+interface AgentGridProps {
+  displayedAgents: Agent[];
+  activeSpeciality: string;
+  handleSpecialityFilter: (speciality: string) => void;
+}
 
 const SPECIALITIES = [
   "all",
@@ -15,28 +39,32 @@ const SPECIALITIES = [
   "relocation",
 ];
 
-const AgentGrid = () => {
-  const [displayedAgents, setDisplayedAgents] = useState(agents);
-  const [activeSpeciality, setActiveSpeciality] = useState("all");
+const AgentGrid: React.FC<AgentGridProps> = ({
+  displayedAgents,
+  activeSpeciality,
+  handleSpecialityFilter,
+}) => {
+  // const [displayedAgents, setDisplayedAgents] = useState(agents);
+  // const [activeSpeciality, setActiveSpeciality] = useState("all");
 
-  const handleSpecialityFilter = (speciality: string) => {
-    if (speciality === "all") {
-      setDisplayedAgents(agents);
-      setActiveSpeciality("all");
-      return;
-    }
+  // const handleSpecialityFilter = (speciality: string) => {
+  //   if (speciality === "all") {
+  //     setDisplayedAgents(agents);
+  //     setActiveSpeciality("all");
+  //     return;
+  //   }
 
-    const filteredAgents = agents.filter(
-      (agent) =>
-        speciality.toLowerCase() === agent.speciality.toLowerCase() ||
-        agent.speciality.toLowerCase().includes(speciality.toLowerCase()) ||
-        agent.homeType.some((type) =>
-          type.toLowerCase().includes(speciality.toLowerCase()),
-        ),
-    );
-    setDisplayedAgents(filteredAgents);
-    setActiveSpeciality(speciality);
-  };
+  //   const filteredAgents = agents.filter(
+  //     (agent) =>
+  //       speciality.toLowerCase() === agent.speciality.toLowerCase() ||
+  //       agent.speciality.toLowerCase().includes(speciality.toLowerCase()) ||
+  //       agent.homeType.some((type) =>
+  //         type.toLowerCase().includes(speciality.toLowerCase()),
+  //       ),
+  //   );
+  //   setDisplayedAgents(filteredAgents);
+  //   setActiveSpeciality(speciality);
+  // };
   return (
     <section id="agent-grid">
       <div className="mt-20 mb-5">

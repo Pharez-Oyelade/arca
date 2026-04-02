@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Search } from "lucide-react";
 import { motion, useTransform, useScroll } from "motion/react";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import AgentGrid from "./components/AgentGrid";
 import AgentAccordion from "./components/AgentAccordion";
 import ContactCard from "@/app/components/ContactCard";
 import ScrollReveal from "@/components/ScrollReveal";
+import { agents } from "@/app/assets/agents";
 
 const page = () => {
   // const ref = useRef(null);
@@ -21,6 +22,33 @@ const page = () => {
   //   [0, 1],
   //   ["inset(0% 50% 0% 50%)", "inset(0% 0% 0% 0%)"],
   // );
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [displayedAgents, setDisplayedAgents] = useState(agents);
+  const [activeSpeciality, setActiveSpeciality] = useState("all");
+
+  // const handleSearch = (search: string) => {
+  //   if (searchTerm.includes())
+  // }
+
+  const handleSpecialityFilter = (speciality: string) => {
+    if (speciality === "all") {
+      setDisplayedAgents(agents);
+      setActiveSpeciality("all");
+      return;
+    }
+
+    const filteredAgents = agents.filter(
+      (agent) =>
+        speciality.toLowerCase() === agent.speciality.toLowerCase() ||
+        agent.speciality.toLowerCase().includes(speciality.toLowerCase()) ||
+        agent.homeType.some((type) =>
+          type.toLowerCase().includes(speciality.toLowerCase()),
+        ),
+    );
+    setDisplayedAgents(filteredAgents);
+    setActiveSpeciality(speciality);
+  };
   return (
     <>
       <div className="px-5 md:px-10 lg:px-20">
@@ -93,7 +121,11 @@ const page = () => {
 
         {/* AGENTS GRID */}
         <div className="mt-10">
-          <AgentGrid />
+          <AgentGrid
+            activeSpeciality={activeSpeciality}
+            displayedAgents={displayedAgents}
+            handleSpecialityFilter={handleSpecialityFilter}
+          />
         </div>
       </div>
 
