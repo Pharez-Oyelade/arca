@@ -27,9 +27,17 @@ const page = () => {
   const [displayedAgents, setDisplayedAgents] = useState(agents);
   const [activeSpeciality, setActiveSpeciality] = useState("all");
 
-  // const handleSearch = (search: string) => {
-  //   if (searchTerm.includes())
-  // }
+  const handleSearch = (search: string) => {
+    // const searchAgents = agents.filter((agent) =>
+    //   agent.name.toLowerCase() === searchTerm.toLowerCase();
+    // );
+    const searchAgents = agents.filter((agent) =>
+      agent.name.toLowerCase().includes(search.toLowerCase()),
+    );
+
+    setDisplayedAgents(searchAgents);
+    setSearchTerm(search);
+  };
 
   const handleSpecialityFilter = (speciality: string) => {
     if (speciality === "all") {
@@ -62,6 +70,7 @@ const page = () => {
         <div className="mt-10 w-full md:w-[350px]">
           <div className="flex justify-between items-center pb-3 px-3 border-b-2 w-full">
             <input
+              onChange={(e) => handleSearch(e.target.value)}
               type="text"
               placeholder="Search agents..."
               className="outline-none focus:outline-none"
@@ -70,54 +79,57 @@ const page = () => {
           </div>
         </div>
 
-        <div className="mt-10">
-          <div className="flex flex-col xl:flex-row justify-between gap-5 md:gap-20 w-full">
-            <motion.div
-              initial={{
-                clipPath: "inset(0% 50% 0% 50%)",
-              }}
-              animate={{
-                clipPath: "inset(0% 0% 0% 0%)",
-              }}
-              transition={{
-                duration: 1.5,
-                ease: [0.77, 0, 0.175, 1],
-              }}
-              className="w-full xl:w-[50%] overflow-hidden"
-            >
-              <Image
-                src="/images/agent2.jpg"
-                alt="agent"
-                width={500}
-                height={500}
-                className="w-full"
-              />
-            </motion.div>
+        {/* DYNAMIC INITAL DISPLAY BASED ON SEARCH */}
+        {!searchTerm && (
+          <div className="mt-10">
+            <div className="flex flex-col xl:flex-row justify-between gap-5 md:gap-20 w-full">
+              <motion.div
+                initial={{
+                  clipPath: "inset(0% 50% 0% 50%)",
+                }}
+                animate={{
+                  clipPath: "inset(0% 0% 0% 0%)",
+                }}
+                transition={{
+                  duration: 1.5,
+                  ease: [0.77, 0, 0.175, 1],
+                }}
+                className="w-full xl:w-[50%] overflow-hidden"
+              >
+                <Image
+                  src="/images/agent2.jpg"
+                  alt="agent"
+                  width={500}
+                  height={500}
+                  className="w-full"
+                />
+              </motion.div>
 
-            <div className="w-full xl:w-[50%]">
-              <div className="w-full">
-                <ScrollReveal
-                  baseOpacity={0.3}
-                  enableBlur={true}
-                  baseRotation={5}
-                  blurStrength={4}
-                  textClassName="text-gray-700 text-lg md:text-xl lg:text-2xl dark:text-gray-300"
-                >
-                  The person guiding you through one of the biggest decisions of
-                  your life should be someone you can trust completely — not
-                  just someone who is available. Every Arca advisor is
-                  hand-selected for their market knowledge, their integrity, and
-                  their track record of putting clients first. We assess each
-                  one not just on what they have sold, but on how they sold it —
-                  the relationships they built, the counsel they gave when it
-                  was easier not to, and the clients who came back. If an
-                  advisor wears the Arca name, it means something. We make sure
-                  of it.
-                </ScrollReveal>
+              <div className="w-full xl:w-[50%]">
+                <div className="w-full">
+                  <ScrollReveal
+                    baseOpacity={0.3}
+                    enableBlur={true}
+                    baseRotation={5}
+                    blurStrength={4}
+                    textClassName="text-gray-700 text-lg md:text-xl lg:text-2xl dark:text-gray-300"
+                  >
+                    The person guiding you through one of the biggest decisions
+                    of your life should be someone you can trust completely —
+                    not just someone who is available. Every Arca advisor is
+                    hand-selected for their market knowledge, their integrity,
+                    and their track record of putting clients first. We assess
+                    each one not just on what they have sold, but on how they
+                    sold it — the relationships they built, the counsel they
+                    gave when it was easier not to, and the clients who came
+                    back. If an advisor wears the Arca name, it means something.
+                    We make sure of it.
+                  </ScrollReveal>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* AGENTS GRID */}
         <div className="mt-10">
