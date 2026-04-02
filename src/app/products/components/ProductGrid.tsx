@@ -66,9 +66,12 @@ const ProductGrid = ({ products }: { products: any[] }) => {
             </div>
 
             <div className="pt-5">
-              <button className="border-b-2 border-gray-800 text-sm font-medium pb-2 cursor-pointer">
+              <Link
+                href={`/products/${property.id}`}
+                className="border-b-2 border-gray-800 text-sm font-medium pb-2 cursor-pointer"
+              >
                 View Details
-              </button>
+              </Link>
             </div>
           </div>
         ))}
