@@ -4,7 +4,7 @@ export const agents = [
     name: "Elena Marchetti",
     speciality: "luxury residential",
     homeType: ["villas", "penthouses", "off-market"],
-    image: "/images/agent1.jpg",
+    image: "/images/agent_elena.jpg",
     stats: {
       yearsExperience: 12,
       sold: 84,
@@ -19,7 +19,7 @@ export const agents = [
     name: "James Okafor",
     speciality: "investment & commercial",
     homeType: ["commercial", "portfolio", "buy-to-let"],
-    image: "/images/agent2.jpg",
+    image: "/images/agent_james.jpg",
     stats: {
       yearsExperience: 9,
       closed: 116,
@@ -34,7 +34,7 @@ export const agents = [
     name: "Sofia Laurent",
     speciality: "new developments",
     homeType: ["off-plan", "promenade", "new build"],
-    image: "/images/agent3.jpg",
+    image: "/images/agent_sofia.jpg",
     stats: {
       yearsExperience: 7,
       sold: 67,
@@ -49,7 +49,7 @@ export const agents = [
     name: "Marcus Chen",
     speciality: "rentals & relocation",
     homeType: ["rentals", "expats", "short-term"],
-    image: "/images/agent4.jpg",
+    image: "/images/agent_marcus.jpg",
     stats: {
       yearsExperience: 5,
       placed: 230,
@@ -64,7 +64,7 @@ export const agents = [
     name: "Priya Nair",
     speciality: "international clients",
     homeType: ["international", "luxury", "riverside"],
-    image: "/images/agent5.jpg",
+    image: "/images/agent_priya.jpg",
     stats: {
       yearsExperience: 8,
       sold: 58,
@@ -76,10 +76,10 @@ export const agents = [
   },
   {
     id: 6,
-    name: "DAvid Holloway",
+    name: "David Holloway",
     speciality: "investment",
     homeType: ["uptown", "buy-to-let", "off-plan"],
-    image: "/images/agent6.jpg",
+    image: "/images/agent_david.jpg",
     stats: {
       yearsExperience: 11,
       closed: 91,
