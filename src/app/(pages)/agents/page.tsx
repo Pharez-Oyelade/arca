@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { Search } from "lucide-react";
 import { motion, useTransform, useScroll } from "motion/react";
 import Image from "next/image";
+import AgentGrid from "./components/AgentGrid";
 
 const page = () => {
   // const ref = useRef(null);
@@ -69,6 +70,11 @@ const page = () => {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* AGENTS GRID */}
+      <div className="mt-10">
+        <AgentGrid />
       </div>
     </>
   );
