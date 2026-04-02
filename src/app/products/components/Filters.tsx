@@ -52,12 +52,12 @@ const Filters = ({
           </select>
         </div>
 
-        <div className="relative w-[150px]">
+        <div className="relative w-fit">
           <div
             onClick={() => setSaleDropdown(!saleDropdown)}
             className="border px-3 py-2 flex justify-between items-center gap-5 cursor-pointer w-full"
           >
-            <span>{saleType || "For Sale"}</span>
+            <span>Sale Type: {saleType}</span>
             <ChevronDown size={18} />
           </div>
           {saleDropdown && (

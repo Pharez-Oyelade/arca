@@ -29,13 +29,13 @@ const ProductGrid = ({ products }: { products: any[] }) => {
         {displayedProperties.map((property) => (
           <div key={property.id} className="w-full mb-5 group">
             <Link href={`/products/${property.id}`}>
-              <div className="w-full h-[250px] overflow-hidden">
+              <div className="w-full h-[300px] overflow-hidden">
                 <Image
                   src={property.image}
                   alt={property.name}
                   width={700}
                   height={700}
-                  className="group-hover:scale-105 transition-all duration-300 ease-in-out"
+                  className="group-hover:scale-105 w-full h-full transition-all duration-300 ease-in-out"
                 />
               </div>
             </Link>
