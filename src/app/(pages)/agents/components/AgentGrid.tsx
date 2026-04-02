@@ -46,10 +46,10 @@ const AgentGrid = () => {
       </div>
 
       {/* Speciality Filter */}
-      <div className="my-5 sticky top-0 left-0 bg-white/20 z-10 py-5 w-full backdrop-blur-2xl">
-        <div className="flex gap-2 items-center">
+      <div className="my-5 sticky top-0 left-0 bg-white z-10 py-5 w-full backdrop-blur-2xl">
+        <div className="flex flex-col md:flex-row gap-2 items-start md:items-center w-full">
           <p className="uppercase">Speciality</p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             {SPECIALITIES.map((speciality) => (
               <div
                 onClick={() => handleSpecialityFilter(speciality)}
@@ -74,7 +74,7 @@ const AgentGrid = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-4 gap-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-0">
         {displayedAgents.map((agent) => (
           <div key={agent.id} className="border py-15 px-10 h-auto relative">
             <div className="pb-10">
