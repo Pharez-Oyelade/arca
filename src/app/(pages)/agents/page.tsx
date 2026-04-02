@@ -6,6 +6,8 @@ import { motion, useTransform, useScroll } from "motion/react";
 import Image from "next/image";
 import AgentGrid from "./components/AgentGrid";
 import AgentAccordion from "./components/AgentAccordion";
+import ContactCard from "@/app/components/ContactCard";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const page = () => {
   // const ref = useRef(null);
@@ -41,7 +43,7 @@ const page = () => {
         </div>
 
         <div className="mt-10">
-          <div className="flex flex-col md:flex-row justify-between gap-5 md:gap-20 w-full">
+          <div className="flex flex-col xl:flex-row justify-between gap-5 md:gap-20 w-full">
             <motion.div
               initial={{
                 clipPath: "inset(0% 50% 0% 50%)",
@@ -53,7 +55,7 @@ const page = () => {
                 duration: 1.5,
                 ease: [0.77, 0, 0.175, 1],
               }}
-              className="w-full md:w-[80%] overflow-hidden"
+              className="w-full xl:w-[50%] overflow-hidden"
             >
               <Image
                 src="/images/agent2.jpg"
@@ -64,12 +66,27 @@ const page = () => {
               />
             </motion.div>
 
-            <div>
-              <p className="w-full">
-                Every Arca advisor is hand-selected for their market knowledge,
-                integrity, and genuine commitment to finding you the right home
-                — not just the next sale.
-              </p>
+            <div className="w-full xl:w-[50%]">
+              <div className="w-full">
+                <ScrollReveal
+                  baseOpacity={0.3}
+                  enableBlur={true}
+                  baseRotation={5}
+                  blurStrength={4}
+                  textClassName="text-gray-700 text-lg md:text-xl lg:text-2xl dark:text-gray-300"
+                >
+                  The person guiding you through one of the biggest decisions of
+                  your life should be someone you can trust completely — not
+                  just someone who is available. Every Arca advisor is
+                  hand-selected for their market knowledge, their integrity, and
+                  their track record of putting clients first. We assess each
+                  one not just on what they have sold, but on how they sold it —
+                  the relationships they built, the counsel they gave when it
+                  was easier not to, and the clients who came back. If an
+                  advisor wears the Arca name, it means something. We make sure
+                  of it.
+                </ScrollReveal>
+              </div>
             </div>
           </div>
         </div>
@@ -92,6 +109,15 @@ const page = () => {
         <div className="w-full md:w-[75%] lg:w-[50%]">
           <AgentAccordion />
         </div>
+      </div>
+
+      <div>
+        <ContactCard
+          header="Ready to find your perfect advisor?"
+          text="Tell us what you need and we'll match you in under 24 hours."
+          mainButtonText="GET MATCHED"
+          secondaryButtonText="BROWSE LISTINGS"
+        />
       </div>
     </>
   );
