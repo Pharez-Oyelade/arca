@@ -5,12 +5,18 @@ import { Button } from "../ui/button";
 import React, { useEffect, useState } from "react";
 import { X, Equal } from "lucide-react";
 import { useProductContext } from "@/app/context/ProductContext";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const { setSaleType } = useProductContext();
+  const { saleType, setSaleType } = useProductContext();
+
+  const isActive = (path: any) => {
+    return pathname === path ? "text-amber-600" : "";
+  };
 
   // disable scrolling when mobile menu is open
   useEffect(() => {
@@ -72,7 +78,7 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="/products"
-              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className={`cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full ${isActive("/products")}`}
             >
               Search
             </Link>
@@ -86,7 +92,7 @@ const Navbar = () => {
           <div className="overflow-hidden h-8 group flex flex-col gap-0">
             <Link
               href="/agents"
-              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className={`cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full ${isActive("/agents")}`}
             >
               Agents
             </Link>
@@ -103,7 +109,7 @@ const Navbar = () => {
           >
             <Link
               href="/products"
-              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className={`cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full ${saleType === "For Sale" ? isActive("/products") : ""}`}
             >
               Buy
             </Link>
@@ -120,7 +126,7 @@ const Navbar = () => {
           >
             <Link
               href="/products"
-              className="cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full"
+              className={`cursor-pointer transition-all duration-300 ease-in-out group-hover:-translate-y-full ${saleType === "For Rent" ? isActive("/products") : ""}`}
             >
               Rent
             </Link>
