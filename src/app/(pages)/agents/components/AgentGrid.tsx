@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { agents } from "@/app/assets/agents";
 import Image from "next/image";
