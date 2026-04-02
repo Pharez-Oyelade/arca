@@ -18,7 +18,7 @@ export default function PagesLayout({
   return (
     <div className="">
       <Navbar />
-      <div className="py-5 md:py-10 px-5 md:px-10 lg:px-20">
+      <div className="py-5 md:py-10">
         <ProductProvider>{children}</ProductProvider>
       </div>
     </div>

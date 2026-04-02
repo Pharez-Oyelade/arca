@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 import { motion, useTransform, useScroll } from "motion/react";
 import Image from "next/image";
 import AgentGrid from "./components/AgentGrid";
+import AgentAccordion from "./components/AgentAccordion";
 
 const page = () => {
   // const ref = useRef(null);
@@ -20,61 +21,77 @@ const page = () => {
   // );
   return (
     <>
-      <div className="space-y-5">
-        <h1 className="text-5xl font-bold">Meet Our Agents</h1>
-        <p className="text-lg">
-          Hand Selected Agents Dedicated to Finding You the Perfect Home
-        </p>
-      </div>
-
-      <div className="mt-10 w-full md:w-[350px]">
-        <div className="flex justify-between items-center pb-3 px-3 border-b-2 w-full">
-          <input
-            type="text"
-            placeholder="Search agents..."
-            className="outline-none focus:outline-none"
-          />
-          <Search className="cursor-pointer" />
+      <div className="px-5 md:px-10 lg:px-20">
+        <div className="space-y-5">
+          <h1 className="text-5xl font-bold">Meet Our Agents</h1>
+          <p className="text-lg">
+            Hand Selected Agents Dedicated to Finding You the Perfect Home
+          </p>
         </div>
-      </div>
 
-      <div className="mt-10">
-        <div className="flex flex-col md:flex-row justify-between gap-5 md:gap-20 w-full">
-          <motion.div
-            initial={{
-              clipPath: "inset(0% 50% 0% 50%)",
-            }}
-            animate={{
-              clipPath: "inset(0% 0% 0% 0%)",
-            }}
-            transition={{
-              duration: 1.5,
-              ease: [0.77, 0, 0.175, 1],
-            }}
-            className="w-full md:w-[80%] overflow-hidden"
-          >
-            <Image
-              src="/images/agent2.jpg"
-              alt="agent"
-              width={500}
-              height={500}
-              className="w-full"
+        <div className="mt-10 w-full md:w-[350px]">
+          <div className="flex justify-between items-center pb-3 px-3 border-b-2 w-full">
+            <input
+              type="text"
+              placeholder="Search agents..."
+              className="outline-none focus:outline-none"
             />
-          </motion.div>
-
-          <div>
-            <p className="w-full">
-              Every Arca advisor is hand-selected for their market knowledge,
-              integrity, and genuine commitment to finding you the right home —
-              not just the next sale.
-            </p>
+            <Search className="cursor-pointer" />
           </div>
         </div>
+
+        <div className="mt-10">
+          <div className="flex flex-col md:flex-row justify-between gap-5 md:gap-20 w-full">
+            <motion.div
+              initial={{
+                clipPath: "inset(0% 50% 0% 50%)",
+              }}
+              animate={{
+                clipPath: "inset(0% 0% 0% 0%)",
+              }}
+              transition={{
+                duration: 1.5,
+                ease: [0.77, 0, 0.175, 1],
+              }}
+              className="w-full md:w-[80%] overflow-hidden"
+            >
+              <Image
+                src="/images/agent2.jpg"
+                alt="agent"
+                width={500}
+                height={500}
+                className="w-full"
+              />
+            </motion.div>
+
+            <div>
+              <p className="w-full">
+                Every Arca advisor is hand-selected for their market knowledge,
+                integrity, and genuine commitment to finding you the right home
+                — not just the next sale.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* AGENTS GRID */}
+        <div className="mt-10">
+          <AgentGrid />
+        </div>
       </div>
 
-      {/* AGENTS GRID */}
-      <div className="mt-10">
-        <AgentGrid />
+      {/* AGENT ACCORDION */}
+      <div className="mt-10 flex flex-col gap-10 md:gap-5 md:flex-row justify-between bg-[#151717] px-10 py-20 md:px-20 text-white">
+        <div>
+          <h1 className="text-5xl w-full md:w-[75%] lg:w-[50%]">
+            Not Every Agent is an{" "}
+            <span className="text-gray-400">Arca Agent</span>
+          </h1>
+        </div>
+
+        <div className="w-full md:w-[75%] lg:w-[50%]">
+          <AgentAccordion />
+        </div>
       </div>
     </>
   );
