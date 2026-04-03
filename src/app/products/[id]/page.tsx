@@ -2,10 +2,12 @@
 
 import { useProductContext } from "@/app/context/ProductContext";
 import { useParams } from "next/navigation";
-import React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 import { Map, Send, Phone, Bath, Bed, Ratio } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import calculateMortgage from "@/lib/mortgage";
+import { Slider } from "@/components/ui/slider";
 
 const page = () => {
   const params = useParams();
@@ -14,6 +16,30 @@ const page = () => {
   const { products } = useProductContext();
   const idNum = Number(id);
   const product = products.find((p) => p.id === idNum);
+
+  const [payment, setPayment] = useState(720000);
+  const [interest, setInterest] = useState(5.5);
+  const [term, setTerm] = useState(25);
+
+  const [inputs, setInputs] = useState({
+    homePrice: Number(product?.price),
+    downPayment: payment,
+    interestRate: interest,
+    loanTerm: term,
+  });
+
+  useEffect(() => {
+    setInputs({
+      homePrice: Number(product?.price),
+      downPayment: payment,
+      interestRate: interest,
+      loanTerm: term,
+    });
+  }, [payment, interest, term, product?.price]);
+
+  const monthlyPayment = useMemo(() => {
+    return calculateMortgage(inputs);
+  }, [inputs]);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -168,6 +194,94 @@ const page = () => {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Mortgage section */}
+      <div className="flex flex-col-reverse xl:flex-row justify-between gap-10 mt-10 w-full">
+        <div className="w-full xl:w-[60%]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3949.361102773584!2d4.267344108489999!3d8.16632656084548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1775177721967!5m2!1sen!2sng"
+            width="600"
+            height="450"
+            style={{ border: "0" }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full"
+          ></iframe>
+        </div>
+
+        {/* Mortgage calculator */}
+        {product.saleType === "for sale" && (
+          <div className="bg-[#151717] text-white w-full xl:w-[40%] h-full p-10 rounded-2xl">
+            <h3 className="text-lg">Mortgage Calculator</h3>
+            <p className="text-xs text-gray-500">
+              Get a rough sense of monthly payments
+            </p>
+
+            {/* Mortgage sliders */}
+            <div className="mt-5 space-y-5">
+              {/* Down payment slider */}
+              <div>
+                <label className="flex justify-between text-sm font-medium mb-2">
+                  <span>Down Payment</span>
+                  <span>${payment.toLocaleString()}</span>
+                </label>
+                <Slider
+                  value={[payment]}
+                  onValueChange={(value) => setPayment(value[0])}
+                  max={product?.price || 1000000}
+                  min={0}
+                  step={1000}
+                  className="w-full"
+                />
+              </div>
+
+              {/* Interest rate slider  */}
+              <div>
+                <label className="flex justify-between text-sm font-medium mb-2">
+                  <span>Interest Rate</span>
+                  <span>${interest}%</span>
+                </label>
+                <Slider
+                  value={[interest]}
+                  onValueChange={(value) => setInterest(value[0])}
+                  max={10}
+                  min={1}
+                  step={0.1}
+                  className="w-full"
+                />
+              </div>
+
+              {/* Loan term slider */}
+              <div>
+                <label className="flex justify-between text-sm font-medium mb-2">
+                  <span>Loan Term</span>
+                  <span>${term} years</span>
+                </label>
+                <Slider
+                  value={[term]}
+                  onValueChange={(value) => setTerm(value[0])}
+                  max={30}
+                  min={5}
+                  step={1}
+                  className="w-full"
+                />
+              </div>
+            </div>
+
+            {/* Monthly payment display */}
+            <div className="mt-10 bg-white/10 py-10 flex flex-col gap-3 justify-center items-center rounded-xl">
+              <p className="uppercase text-sm">Est. Monthly Payment</p>
+              <p className="font-bold text-2xl">
+                ${monthlyPayment.toLocaleString()}
+              </p>
+              <p className="text-xs text-gray-500">
+                Indicative only · Speak to a mortgage advisor
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
