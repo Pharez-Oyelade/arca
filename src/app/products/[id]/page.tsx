@@ -271,7 +271,7 @@ const page = () => {
             </div>
 
             {/* Monthly payment display */}
-            <div className="mt-10 bg-white/10 py-10 flex flex-col gap-3 justify-center items-center rounded-xl">
+            <div className="mt-10 bg-white/10 py-10 flex flex-col gap-3 justify-center items-center text-center rounded-xl">
               <p className="uppercase text-sm">Est. Monthly Payment</p>
               <p className="font-bold text-2xl">
                 ${monthlyPayment.toLocaleString()}
