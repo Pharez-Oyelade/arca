@@ -15,26 +15,6 @@ const page = () => {
 
   const { applyFilters, saleType, setSaleType, products } = useProductContext();
 
-  // Apply Filters
-  // const applyFilters = () => {
-  //   let filteredProducts = properties;
-
-  //   if (saleType === "All") {
-  //     filteredProducts = properties;
-  //   }
-
-  //   if (saleType === "For Sale") {
-  //     filteredProducts = filteredProducts.filter(
-  //       (product) => product.saleType === "for sale",
-  //     );
-  //   } else if (saleType === "For Rent") {
-  //     filteredProducts = filteredProducts.filter(
-  //       (product) => product.saleType === "for rent",
-  //     );
-  //   }
-  //   setProducts(filteredProducts);
-  // };
-
   useEffect(() => {
     applyFilters();
   }, [saleType]);
