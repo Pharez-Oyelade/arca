@@ -161,6 +161,7 @@ const page = () => {
           text="Tell us what you need and we'll match you in under 24 hours."
           mainButtonText="GET MATCHED"
           secondaryButtonText="BROWSE LISTINGS"
+          secondaryLink="/products"
         />
       </div>
     </>

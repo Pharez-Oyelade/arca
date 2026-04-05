@@ -116,6 +116,7 @@ const page = () => {
         text="Talk to an advisor today - no commitment, just clarity"
         mainButtonText="Get in Touch"
         secondaryButtonText="View All Listings"
+        secondaryLink="/products"
       />
       <Testimonial />
     </div>

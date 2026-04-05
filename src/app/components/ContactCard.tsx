@@ -6,6 +6,8 @@ type ContactCardProps = {
   text: string;
   mainButtonText: string;
   secondaryButtonText?: string;
+  mainLink?: string;
+  secondaryLink?: string;
 };
 
 const ContactCard = ({
@@ -13,6 +15,8 @@ const ContactCard = ({
   text,
   mainButtonText,
   secondaryButtonText,
+  mainLink,
+  secondaryLink,
 }: ContactCardProps) => {
   return (
     <div className="py-10 md:py-16 lg:py-20 px-4 md:px-8 lg:px-20">
@@ -25,20 +29,24 @@ const ContactCard = ({
         </div>
 
         <div className="flex flex-col md:flex-row gap-3">
-          <Button
-            variant="secondary"
-            size="lg"
-            className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-amber-700"
-          >
-            {mainButtonText}
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-white bg-transparent"
-          >
-            {secondaryButtonText}
-          </Button>
+          <a href={mainLink || "#"}>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-amber-700"
+            >
+              {mainButtonText}
+            </Button>
+          </a>
+          <a href={secondaryLink || "#"}>
+            <Button
+              variant="outline"
+              size="lg"
+              className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-white bg-transparent"
+            >
+              {secondaryButtonText}
+            </Button>
+          </a>
         </div>
 
         <div className="absolute -top-6 -right-10 w-[150px] h-[150px] md:w-[200px] md:h-[200px] lg:w-[250px] lg:h-[250px] rounded-full bg-white/20 pointer-events-none" />
