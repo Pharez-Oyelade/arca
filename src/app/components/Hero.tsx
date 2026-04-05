@@ -17,31 +17,32 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   // Move down
-  const y = useTransform(scrollYProgress, [0, 1], ["0px", "600px"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0px", "500px"]);
 
   // scale image up slightly as we scroll down
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.8]);
   return (
     <section
       ref={ref}
-      className="flex items-center flex-col pt-20 md:pt-32 lg:pt-40 relative h-[92%] min-h-[92%] overflow-hidden"
+      className="flex items-center flex-col pt-20 md:pt-32 lg:pt-40 h-[92%] min-h-[92%] overflow-hidden"
     >
-      <motion.div
-        style={{ opacity, y }}
-        className="text-center space-y-4 md:space-y-6 px-4"
-      >
-        <h1 className="text-4xl md:text-6xl lg:text-8xl font-gebuk font-bold opacity-[0.9] leading-tight">
-          Find a Place You'll Call Home.
-        </h1>
-        <p className="text-xl md:text-2xl lg:text-4xl font-medium opacity-[0.8]">
-          We match discerning buyers with exceptional spaces.
-        </p>
-        <Button size="lg" className="p-4 md:p-6 rounded-4xl text-md">
-          Explore Properties
-        </Button>
-      </motion.div>
+      <div>
+        <motion.div
+          style={{ opacity, y }}
+          className="text-center space-y-4 md:space-y-6 px-4"
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-gebuk font-bold opacity-[0.9] leading-tight">
+            Find a Place You'll Call Home.
+          </h1>
+          <p className="text-xl md:text-2xl lg:text-4xl font-medium opacity-[0.8]">
+            We match discerning buyers with exceptional spaces.
+          </p>
+          <Button size="lg" className="p-4 md:p-6 rounded-4xl text-md">
+            Explore Properties
+          </Button>
+        </motion.div>
 
-      {/* <motion.div
+        {/* <motion.div
         style={{ scale: imageScale }}
         className="overflow-hidden absolute -bottom-20 inset-0 "
       >
@@ -53,19 +54,33 @@ const Hero = () => {
           className="w-[50%] h-full object-cover"
         />
       </motion.div> */}
-      <motion.div
-        style={{ scale: imageScale }}
-        className="absolute bottom-0 right-1/2 translate-x-1/2 h-[40%] md:h-[50%] lg:h-[60%] overflow-hidden z-0 pointer-events-none"
-      >
-        <Image
-          src="/building.png"
-          alt="building"
-          width={700}
-          height={700}
-          className="object-cover"
-          loading="eager"
-        />
-      </motion.div>
+        {/* <motion.div
+          style={{ scale: imageScale }}
+          className="absolute bottom-0 right-1/2 translate-x-1/2 h-[40%] md:h-[50%] lg:h-[60%] overflow-hidden z-0 pointer-events-none"
+        >
+          <Image
+            src="/building.png"
+            alt="building"
+            width={700}
+            height={700}
+            className="object-cover"
+            loading="eager"
+          />
+        </motion.div> */}
+        <motion.div
+          style={{ scale: imageScale }}
+          className="flex justify-center align-bottom h-[60%] lg:h-[80%] xl:h-[60%] overflow-hidden z-0 pointer-events-none"
+        >
+          <Image
+            src="/building.png"
+            alt="building"
+            width={700}
+            height={700}
+            className="object-cover"
+            loading="eager"
+          />
+        </motion.div>
+      </div>
     </section>
   );
 };
