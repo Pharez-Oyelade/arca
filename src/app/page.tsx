@@ -26,7 +26,7 @@ const page = () => {
               <form>
                 <input
                   list="locations"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
+                  className="text-gray-800 placeholder:text-gray-700 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="City, neighborhood, e.t.c"
                 />
                 <datalist id="locations">
@@ -43,7 +43,7 @@ const page = () => {
               <form>
                 <input
                   list="types"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
+                  className="text-gray-800 placeholder:text-gray-700 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="Any Type"
                 />
                 <datalist id="types">
@@ -63,7 +63,7 @@ const page = () => {
               <form>
                 <input
                   list="prices"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
+                  className="text-gray-800 placeholder:text-gray-700 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="Any Price"
                 />
                 <datalist id="prices">
@@ -82,7 +82,7 @@ const page = () => {
               <form>
                 <input
                   list="bedrooms"
-                  className="text-gray-700 placeholder:text-gray-500 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
+                  className="text-gray-800 placeholder:text-gray-700 border border-gray-300 focus:outline-none px-3 md:px-5 py-2 md:py-1 rounded-2xl w-full text-sm md:text-base"
                   placeholder="Any"
                 />
                 <datalist id="bedrooms">
