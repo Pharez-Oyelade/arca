@@ -126,7 +126,7 @@ const Featured = () => {
                 <div
                   onClick={() => setForState(sale)}
                   key={sale}
-                  className={`${forState === sale ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-2 md:px-3 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors text-xs md:text-sm`}
+                  className={`${forState === sale ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-3 md:px-4 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors text-xs md:text-sm`}
                 >
                   {sale}
                 </div>
@@ -141,7 +141,7 @@ const Featured = () => {
                 <div
                   onClick={() => setPropertyType(type)}
                   key={type}
-                  className={`${propertyType === type ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-2 md:px-3 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors text-xs md:text-sm`}
+                  className={`${propertyType === type ? "bg-black text-white border border-black" : "bg-transparent text-gray-400 border border-gray-400"} py-1 px-3 md:px-4 rounded-full hover:bg-black hover:text-white cursor-pointer transition-colors text-xs md:text-sm`}
                 >
                   {type}
                 </div>
