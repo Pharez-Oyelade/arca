@@ -28,21 +28,21 @@ const ContactCard = ({
           <p className="text-gray-300 text-sm md:text-base">{text}</p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-3">
-          <a href={mainLink || "#"}>
+        <div className="flex flex-col md:flex-row gap-3 w-full md:w-1/4 items-center justify-center">
+          <a href={mainLink || "#"} className="w-1/2">
             <Button
               variant="secondary"
               size="lg"
-              className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-amber-700"
+              className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-amber-700 w-full"
             >
               {mainButtonText}
             </Button>
           </a>
-          <a href={secondaryLink || "#"}>
+          <a href={secondaryLink || "#"} className="w-1/2">
             <Button
               variant="outline"
               size="lg"
-              className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-white bg-transparent"
+              className="py-4 md:py-6 lg:py-7 px-4 md:px-5 rounded-full text-white bg-transparent w-full"
             >
               {secondaryButtonText}
             </Button>
